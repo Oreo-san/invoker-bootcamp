@@ -1,0 +1,113 @@
+<html>
+	<head>
+		<title>
+			Invoker Bootcamp
+		</title>
+	</head>
+	<body>
+		<header>
+		</header>
+		<center>
+		<form name="elements">
+			<button type="button" onclick="addelement(1)">q</button>
+			<button type="button" onclick="addelement(2)">w</button>
+			<button type="button" onclick="addelement(3)">e</button>
+			<button type="button" onclick="invoke()">r</button>
+			<p id="demo"></p>
+			<br>
+			
+			<p id="demo2"></p>
+			
+		</form>
+		<footer>
+		</footer>
+		<script>
+			var currentelements = [0,0,0];
+			document.getElementById("demo").innerHTML = currentelements;
+			/*function addelement(x){
+				currentelements.shift();
+				currentelements.push(x);
+				document.getElementById("demo").innerHTML = currentelements;
+			}*/
+			function invoke(){
+				var spell=1;
+				for(var i=0;i<3;i++){
+					spell*=currentelements[i];
+				}
+				//document.getElementById("demo1").innerHTML = spell;
+				var name;
+				switch (spell){
+					case 1:
+						name="cold snap";
+						document.getElementById("demo2").innerHTML =name;
+						break;
+					case 2:
+						name="ghost walk";
+						document.getElementById("demo2").innerHTML =name;
+						break;
+					case 3:
+						name="ice wall";
+						document.getElementById("demo2").innerHTML =name;
+						break;
+					case 4:
+						name="tornado";
+						document.getElementById("demo2").innerHTML =name;
+						break;
+					case 8:
+						name="emp"
+						document.getElementById("demo2").innerHTML =name;
+						break;
+					case 12:
+						name= "alacrity";
+						document.getElementById("demo2").innerHTML =name;
+						break;
+					case 9:
+						name="forge spirits";
+						document.getElementById("demo2").innerHTML =name;
+						break;
+					case 18:
+						name="chaos meteor";
+						document.getElementById("demo2").innerHTML =name;
+						break;
+					case 27:
+						name="sun strike";
+						document.getElementById("demo2").innerHTML =name;
+						break;
+					case 6:
+						name="deafening blast";
+						document.getElementById("demo2").innerHTML =name;
+						break;
+					default:
+						name="invalid invoke";
+						document.getElementById("demo2").innerHTML =name;
+				}
+			}
+			document.onkeydown = keyboardpress;
+			function keyboardpress(x){
+				//window.alert(x.keyCode);
+				if(x.keyCode==81){
+					//addelement(1);
+					currentelements.shift();
+					currentelements.push(1);
+					document.getElementById("demo").innerHTML = currentelements;
+				}
+				if(x.keyCode==87){
+					//addelement(2);
+					currentelements.shift();
+					currentelements.push(2);
+					document.getElementById("demo").innerHTML = currentelements;
+				}
+				if(x.keyCode==69){
+					//addelement(3);
+					currentelements.shift();
+					currentelements.push(3);
+					document.getElementById("demo").innerHTML = currentelements;
+				}
+				if(x.keyCode==82){
+					invoke();
+				}
+			}
+		</script>
+		</center>
+	</body>
+</html>
